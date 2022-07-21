@@ -1,0 +1,93 @@
+{% extends "layout.html" %} {% block head %}
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="{{ url_for( 'static' , filename = 'member.png') }}"
+/>
+<title>Members</title>
+{% endblock head %}
+
+{% block content %} 
+{% block body %}
+<div style="width: 70%; margin-left: auto; margin-right: auto; padding-top:70px ; ">
+  <form action="/members" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Member's Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="user_name"
+        placeholder="Book worm what's your name "
+      />
+    </div>
+    <div class="mb-3">
+      <label for="Balance" class="form-label">Balance</label>
+      <input
+        type="text"
+        class="form-control"
+        name="balance"
+        placeholder="Add Balance - Minimum ₹100 to rent a book"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <br />
+  <table class="table" style="color: black">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 15%">Member ID</th>
+        <th scope="col">Name</th>
+        <th scope="col" style="width: 15%">Balance</th>
+        <th scope="col" style="width: 35%">Operations</th>
+      </tr>
+    </thead>
+    <!-- use a for loop to log every book record -->
+    {% for member in members %}
+    {% if member.borrowed == False %}
+    <tbody>
+      <tr>
+        <th scope="row">{{member.member_id}}</th>
+        <td>{{member.member_name}}</td>
+        <td>{{member.balance_amount}}</td>
+        <td>
+          <a href="delete_member/{{member.member_id}}"
+            ><button
+              style="border: none"
+              class="btn btn-danger">
+              Delete
+            </button></a>
+          <a href="update/{{member.member_id}}"
+            ><button class="btn btn-primary">Update Balance</button></a
+          >
+        </td>
+      </tr>
+    </tbody>
+
+    {% else %}
+
+    <tbody>
+      <tr>
+        <th scope="row">{{member.member_id}}</th>
+        <td>{{member.member_name}}</td>
+        <td>{{member.member_balance}}</td>
+        <td>
+          <a href="delete_member/{{member.member_id}}"
+            ><button
+              class="btn btn-primary"
+              style="background-color: #808080; border: none">
+              Delete
+            </button></a
+          >
+          <a href="update/{{member.member_id}}"
+            ><button class="btn btn-primary">Update Balance</button></a
+          >
+        </td>
+      </tr>
+    </tbody>
+    {% endif %} {% endfor %}
+  </table>
+</div>
+
+{% endblock body %}
+{% endblock content %}

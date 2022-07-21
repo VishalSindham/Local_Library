@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block head %}
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="{{ url_for( 'static' , filename = 'about.png') }}"
+/>
+<title>About</title>
+{% endblock head %}
+
+{% block content %}
+{% block body %}
+   <h4 style="padding-top:70px ;"> Not every reader is a leader, but every leader is a leader  </h4>
+{% endblock body %}
+{% endblock content %}

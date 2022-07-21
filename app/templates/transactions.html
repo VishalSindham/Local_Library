@@ -1,0 +1,45 @@
+{% extends "layout.html" %} 
+{% block head %}
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="{{ url_for( 'static' , filename = 'transaction.png') }}"
+/>
+<title>Transactions</title>
+{% endblock head %}
+{% block content %} 
+{% block body %}
+<div style="width: 70%; margin-left: auto; margin-right: auto; padding-top:70px ;">
+  <table class="table" style="color: black">
+    <thead>
+      <tr>
+        <th scope="col">User Name</th>
+        <th scope="col" style="width: 45%">Book Name</th>
+        <th scope="col" style="width: 15%">Date</th>
+      </tr>
+    </thead>
+    <!-- use a for loop to log every book record -->
+    {% for transaction in transactions %} 
+    {% if transaction.borrowed_or_not == True %}
+    <tbody style="color: greenyellow">
+      <tr>
+        <td>{{transaction.member_name}} returned this  </td>
+        <th scope="row">{{transaction.book_name}}  </th>
+        <td>{{transaction.time.date().strftime('%d-%m-%Y')}}</td>
+      </tr>
+    </tbody>
+    {% elif transaction.borrowed_or_not == False %}
+    <tbody style="color: tomato">
+      <tr>
+        <td>{{transaction.member_name}} borrowed this  </td>
+        <th scope="row">{{transaction.book_name}} </th>
+        <td>{{transaction.time.date().strftime('%d-%m-%Y')}}</td>
+      </tr>
+    </tbody>
+    {% endif %}
+    {% endfor %}
+  </table>
+</div>
+{% endblock body %}
+{% endblock content %}

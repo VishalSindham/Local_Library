@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Update Balance</title>
+{% endblock head %} 
+
+{% block content %}
+{% block body %}
+<form
+  action="/update/{{id}}"
+  method="POST"
+  style="width: 70%; margin-left: auto; margin-right: auto; padding-top:70px ;">
+  <div class="mb-3">
+    <label for="Amount" class="form-label">Enter the amount to Update</label>
+    <input type="number" class="form-control" name="amount" placeholder="Enter the amount here " />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}
+{% endblock content %}

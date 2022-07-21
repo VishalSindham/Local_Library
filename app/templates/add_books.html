@@ -1,0 +1,126 @@
+{% extends "layout.html" %} 
+{% block head %}
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="{{ url_for( 'static' , filename = 'add_books.png') }}"
+/>
+<title>Add Books</title>
+{% endblock head %} 
+{% block body %}
+<div style="width: 70%; margin-left: auto; margin-right: auto">
+  <h4 style="margin-top: 5%; margin-bottom: 5%">Add books from the API</h4>
+  <form action="/addBooks" method="POST" enctype='multipart/form-data'>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        placeholder="Atomic Habits"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input
+        type="text"
+        class="form-control"
+        name="author"
+        placeholder="James Clear"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="isbn" class="form-label">ISBN</label>
+      <input
+        type="text"
+        class="form-control"
+        name="isbn"
+        placeholder="I.S.B.N"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="publisher" class="form-label">Publisher</label>
+      <input
+        type="text"
+        class="form-control"
+        name="publisher"
+        placeholder="Penguin Random House"
+      />
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          name="quantity"
+        placeholder="Quantity"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <h4 style="margin-top: 5%; margin-bottom: 5%">Add Custom Books</h4>
+  <form action="/addCustomBooks" method="POST" enctype='multipart/form-data'>
+    <div class="mb-3">
+      <label for="book_id" class="form-label">BOOK ID</label>
+      <input
+        type="number"
+        class="form-control"
+        name="book_id"
+        placeholder="1111"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="book_name" class="form-label">Book Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="book_name"
+        placeholder="Atomic Habits"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="authors" class="form-label">Author</label>
+      <input
+        type="text"
+        class="form-control"
+        name="authors"
+        placeholder="James Clear"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="publisher" class="form-label">Publisher</label>
+      <input
+        type="text"
+        class="form-control"
+        name="publisher"
+        placeholder="Penguin Random House "
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="isbn" class="form-label">ISBN</label>
+      <input
+        type="number"
+        class="form-control"
+        name="isbn"
+        placeholder="I.S.B.N"
+      />
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          name="quantity"
+        placeholder="Quantity"
+        />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock body %}
