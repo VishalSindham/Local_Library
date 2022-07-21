@@ -1,7 +1,7 @@
 # Local_Library# Local Library
 
 
-[Click to explore blog, Yes me...!](https://local-library-0.herokuapp.com/) --- Deployed on Heroku         
+[Click to explore , Yes me...!](https://local-library-0.herokuapp.com/) --- Deployed on Heroku         
 
 ## Features 
     - Keep track of all books 
