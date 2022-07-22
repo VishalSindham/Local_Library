@@ -1,7 +1,7 @@
 # Local_Library# Local Library
 
 #### Note : Due to some reason github is sometimes rendering the images in readme and sometimes not you can live preview 
-### from the below link or see screenshots from the overview folder of the repository
+#### from the below link or see screenshots from the overview folder of the repository
 
 [Click to explore , Yes me...!](https://local-library-0.herokuapp.com/) --- Deployed on Heroku         
 
